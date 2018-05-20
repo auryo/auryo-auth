@@ -1,0 +1,31 @@
+{
+  "name": "auth-api",
+  "version": "",
+  "description": "Auth api for soundcloud desktop client",
+  "main": "index.js",
+  "private": true,
+  "scripts": {
+    "start": "node ./bin/www"
+  },
+  "keywords": [
+    "auryo",
+    "soundcloud",
+    "desktop",
+    "api",
+    "auth"
+  ],
+  "engines": {
+    "node": "8.9"
+  },
+  "author": "Jonas Snellinckx",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^5.0.1",
+    "express": "^4.14.1",
+    "http": "0.0.0",
+    "querystring": "^0.2.0",
+    "request": "^2.81.0",
+    "socket.io": "^1.7.3",
+    "url": "^0.11.0"
+  }
+}
