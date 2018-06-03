@@ -41,7 +41,7 @@ app.get(process.env.CALLBACK, function (req, res) {
         env = socket_id.split('|')[0]
         socket_id = socket_id.split('|')[1]
 
-        if (env === 'development') {
+        if (env === 'development' && !process.env.CLIENT_SECRET) {
             return res.redirect(`http://api.auryo.com/callback${serialize(req.query)}`)
         }
     }
