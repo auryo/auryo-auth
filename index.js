@@ -24,7 +24,7 @@ app.get('/connect', (req, res) => {
     const redirect_url = (env === 'development') ? 'http://localhost:3716/oauth/callback' : 'http://api.auryo.com/callback'
     const client_id = (env === 'development') ? process.env.CLIENT_ID_DEV : process.env.CLIENT_ID
 
-    return res.redirect(`https://soundcloud.com/connect?client_id=${client_id}&response_type=code&scope=non-expiring&state=${env}-${socket_id}&redirect_uri=${redirect_url}`)
+    return res.redirect(`https://soundcloud.com/connect?client_id=${client_id}&response_type=code&scope=non-expiring&state=${env}|${socket_id}&redirect_uri=${redirect_url}`)
 })
 
 app.get(process.env.CALLBACK, function (req, res) {
@@ -37,9 +37,9 @@ app.get(process.env.CALLBACK, function (req, res) {
         return
     }
 
-    if (socket_id && socket_id.split('-').length === 2) {
-        env = socket_id.split('-')[0]
-        socket_id = socket_id.split('-')[1]
+    if (socket_id && socket_id.split('|').length === 2) {
+        env = socket_id.split('|')[0]
+        socket_id = socket_id.split('|')[1]
 
         if (env === 'development') {
             return res.redirect(`http://api.auryo.com/callback${serialize(req.query)}`)
