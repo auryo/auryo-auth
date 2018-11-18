@@ -71,7 +71,7 @@ app.get(process.env.CALLBACK, function (req, res) {
         function (error, response, body) {
             if (!error && response.statusCode === 200) {
                 res.io.to(socket_id).emit('token', body.access_token)
-                res.redirect('http://auryo.com/success.html')
+                res.redirect('http://auryo.com/success')
             } else {
                 res.status(400)
                     .send(body)
