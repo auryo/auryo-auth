@@ -14,9 +14,6 @@
     "api",
     "auth"
   ],
-  "engines": {
-    "node": "8.9"
-  },
   "author": "Jonas Snellinckx",
   "license": "ISC",
   "dependencies": {
@@ -25,7 +22,7 @@
     "http": "0.0.0",
     "querystring": "^0.2.0",
     "request": "^2.81.0",
-    "socket.io": "^1.7.3",
+    "socket.io": "^2.2.0",
     "url": "^0.11.0"
   }
 }
