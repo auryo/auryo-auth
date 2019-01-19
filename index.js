@@ -7,6 +7,10 @@ require('dotenv').config()
 server.listen(process.env.PORT || '3716')
 console.log(`Listening on port: ${process.env.PORT || '3716'}`)
 
+io.on('connection', (socket) => {
+    console.log('a user connected');
+});
+
 app.use(function (req, res, next) {
     res.io = io
     next()
