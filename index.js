@@ -26,7 +26,7 @@ app.get('/connect', (req, res) => {
         return
     }
 
-    const redirect_url = (env === 'development') ? 'http://localhost:3716/oauth/callback' : 'http://auth-api.auryo.com' + process.env.CALLBACK
+    const redirect_url = (env === 'development') ? 'http://localhost:3716/oauth/callback' : 'auth-api.auryo.com' + process.env.CALLBACK
     const client_id = (env === 'development') ? process.env.CLIENT_ID_DEV : process.env.CLIENT_ID
 
     return res.redirect(`https://soundcloud.com/connect?client_id=${client_id}&response_type=code&scope=non-expiring&state=${env}|${socket_id}&redirect_uri=${redirect_url}`)
